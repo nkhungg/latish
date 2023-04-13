@@ -18,31 +18,6 @@
 </head>
 
 <body>
-  <!-- <div class="container">
-    <div class="forms">
-      <div class="form login">
-        <span class="title">Đăng nhập</span>
-        <form action="checkLogin.php" method="post">
-          <div class="input-field">
-            <input type="text" class="form-control" name="id" id="id" placeholder="Tên đăng nhập" required />
-            <i class="uil uil-envelope icon"></i>
-          </div>
-          <div class="input-field">
-            <input type="password" class="password form-control" name="password" id="password" placeholder="Mật khẩu" required />
-            <i class="uil uil-lock icon"></i>
-            <i class="uil uil-eye-slash showHidePw"></i>
-          </div>
-          <div class="checkbox-text">
-            <div class="checkbox-content">
-              <input type="checkbox" id="logCheck" />
-              <label for="logCheck" class="text">Ghi nhớ đăng nhập</label>
-            </div>
-          </div>
-          <div class="input-field button"><button type="submit" class="btn btn-primary">Đăng nhập</button></div>
-        </form>
-      </div>
-    </div>
-  </div> -->
   <div class="login-box">
     <h2>Đăng nhập</h2>
     <form action="checkLogin.php" method="post">

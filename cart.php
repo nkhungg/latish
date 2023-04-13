@@ -17,7 +17,7 @@ $ctm = $_SESSION["id"];
         <a type="submit" class="btn btn-success" href="cart.php?status=paid">Đã thanh toán</a>
     </form>
 </div>
-<table class="table table-hover" style="color:aliceblue">
+<table class="table table-hover" style="color:aliceblue;">
     <thead>
         <tr>
             <th>ID</th>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2023 at 04:55 AM
+-- Generation Time: Apr 13, 2023 at 10:14 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.0.25
 
@@ -43,12 +43,13 @@ CREATE TABLE `bill` (
 
 INSERT INTO `bill` (`id`, `ctm_id`, `prd_id`, `total`, `status`, `time`, `address`) VALUES
 (8, '012345678910', '1', 130000, 'waiting', '2023-04-13 05:52:15', NULL),
-(9, '012345678910', '4', 400000, 'waiting', '2023-04-13 06:58:36', NULL),
+(9, '012345678910', '4', 400000, 'paid', '2023-04-13 06:58:36', NULL),
 (10, '012345678910', '1', 130000, 'processing', '2023-04-13 08:33:55', 'ktx'),
-(11, '012345678910', '10', 200000, 'processing', '2023-04-13 09:07:38', 'ktx'),
+(11, '012345678910', '10', 200000, 'waiting', '2023-04-13 09:07:38', 'ktx'),
 (12, '012345678910', '4', 400000, 'processing', '2023-04-13 09:07:41', 'ktx'),
-(13, '012345678910', '7', 120000, 'processing', '2023-04-13 09:07:45', 'ktx'),
-(14, '012345678910', '10', 200000, 'processing', '2023-04-13 09:50:09', 'ktx');
+(13, '012345678910', '7', 120000, 'waiting', '2023-04-13 09:07:45', 'ktx'),
+(14, '012345678910', '10', 200000, 'processing', '2023-04-13 09:50:09', 'ktx'),
+(15, '012345678910', '4', 400000, 'waiting', '2023-04-13 14:38:50', 'ktx');
 
 -- --------------------------------------------------------
 
@@ -57,13 +58,19 @@ INSERT INTO `bill` (`id`, `ctm_id`, `prd_id`, `total`, `status`, `time`, `addres
 --
 
 CREATE TABLE `bill_detail` (
-  `id` int(10) NOT NULL,
-  `ctm_id` varchar(12) NOT NULL,
-  `prd_id` varchar(12) NOT NULL,
-  `phone_no` varchar(10) NOT NULL,
-  `address` varchar(100) NOT NULL,
-  `payment` enum('Momo','COD') DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `receiver` varchar(50) DEFAULT NULL,
+  `phone_no` varchar(10) DEFAULT NULL,
+  `address` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `bill_detail`
+--
+
+INSERT INTO `bill_detail` (`id`, `receiver`, `phone_no`, `address`) VALUES
+(10, 'Nguyen Van A', '1324531255', 'ktx'),
+(11, 'Nguyen Van A', '1324531255', 'ktx');
 
 -- --------------------------------------------------------
 
@@ -230,7 +237,7 @@ ALTER TABLE `seller`
 -- AUTO_INCREMENT for table `bill`
 --
 ALTER TABLE `bill`
-  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Constraints for dumped tables

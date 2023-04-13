@@ -9,23 +9,26 @@ $ctm = $_SESSION["id"];
 $id = $_GET["id"];
 $status = $_GET["status"];
 ?>
-<h1 style="margin-top:100px; margin-left:120px">Mã đơn hàng: <?php
+<h1 style="margin-top:100px; margin-left:120px; color:aliceblue">Mã đơn hàng: <?php
                                                                 echo $id;
                                                                 ?></h1>
 <div class="container">
     <form class="" method="POST" target="_blank" enctype="application/x-www-form-urlencoded" action="./momoprocessing.php">
-        <h2 style="margin-top:20px">Họ và tên người nhận hàng:</h2>
+        <h2 style="margin-top:20px; color:aliceblue">Họ và tên người nhận hàng:</h2>
         <input type="text" placeholder="Họ và tên" class="form-control" name="name" required>
-        <h2 style="margin-top:20px">Số điện thoại người nhận hàng:</h2>
+        <h2 style="margin-top:20px; color:aliceblue">Số điện thoại người nhận hàng:</h2>
         <input type="text" placeholder="Nhập số điện thoại" class="form-control" name="phone_no" required>
-        <h2 style="margin-top:20px">Địa chỉ nhận hàng:</h2>
+        <h2 style="margin-top:20px; color:aliceblue">Địa chỉ nhận hàng:</h2>
         <input type="text" placeholder="Vui lòng nhập địa chỉ nhận hàng" class="form-control" name="address" required>
-        <h2 style="margin-top:20px">Hàng bạn đã đặt: <?php
-                                                        $query = "SELECT * from product where id='$id'";
+        <h2 style="margin-top:20px; color:aliceblue">Hàng bạn đã đặt: <?php
+                                                        $query = "SELECT * from bill where id='$id'";
+                                                        $r = mysqli_fetch_assoc(mysqli_query($conn, $query));
+                                                        $prd_id=$r["prd_id"];
+                                                        $query = "SELECT * from product where id='$prd_id'";
                                                         $r = mysqli_fetch_assoc(mysqli_query($conn, $query));
                                                         echo $r["name"];
                                                         ?></h2>
-        <h2 style="margin-top:20px">Tổng số tiền bạn phải thanh toán: <?php
+        <h2 style="margin-top:20px; color:aliceblue">Tổng số tiền bạn phải thanh toán: <?php
                                                                         echo $r["price"];
                                                                         ?></h2>
         <input type="hidden" name="price" value=<?php $r["price"]?>>
